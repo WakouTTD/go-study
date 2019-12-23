@@ -1,78 +1,87 @@
+# ローカル環境構築
+
 [参照：Golang Mac環境構築メモ](https://qiita.com/beesk/items/b55d1b74b985524c7cf2)
 
-##### Goのバージョンを混在させるためgoenvからGoを入れる
+## Goのバージョンを混在させるためgoenvからGoを入れる
 
 ```bash=
 brew install --HEAD goenv
 ```
 
-##### 更新時
+## 更新時
 
 ```bash=
 brew upgrade --fetch-HEAD goenv
 ```
 
-##### bash_profileにgoenv関連のパスを通しておく
+## bash_profileにgoenv関連のパスを通しておく
 
 ```bash=
 vim ~/.bash_profile
 ```
 
-##### 以下を記載して:wq
+## 以下を記載して:wq
 
 ```txt=
 #goenv
 export PATH="$HOME/.goenv/bin:$PATH"
-export GOPATH=/Users/tateda/work2019/go-study
-export PATH=$PATH:$GOPATH/bin
+# envによるバージョン切替
 eval "$(goenv init -)"
-
+#
+export GOPATH=$HOME/work2019/go-study
+export PATH=$PATH:$GOPATH
+export GOBIN=$GOPATH/bin
 ```
 
-##### bash_profileの変更を反映
+## bash_profileの変更を反映
 
 ```bash=
 source ~/.bash_profile
 ```
 
-##### goenvコマンドが叩けることの確認
+## goenvコマンドが叩けることの確認
 
 ```bash=
-goenv -v 
+goenv -v
 ```
 
-##### ここからGoの構築
+## ここからGoの構築
+
 goenvでインストールできるGoのバージョンを確認
 
 ```bash=
 goenv install -l
 ```
 
-##### バージョン指定で入れる
+## バージョン指定で入れる
 
 ```bash=
 goenv install 1.13.5
 ```
 
-##### 有効なバージョンに今回入れたバージョンが表示されれば成功
+## 有効なバージョンに今回入れたバージョンが表示されれば成功
 
 ```bash=
 goenv versions
 ```
 
-##### マシン全体で入れたバージョンを有効にする
+## マシン全体で入れたバージョンを有効にする
 
 goenv global 1.13.5
 goenv rehash
 
+## 所定のディレクトリのみで有効にしたい場合
 
-##### 所定のディレクトリのみで有効にしたい場合
-
+```bash=
 goenv local 1.13.5
+```
 
+[参考:vscodeを使うなら](https://qiita.com/sasaron397/items/ec285b64607c1e7662e0)
 
+## プログラムを作成する
 
-##### プログラムを作成する。ここではmain.goとしておく。
+ここではmain.goとしておく
+
 ```go=
 package main
 
@@ -83,15 +92,16 @@ func main() {
 }
 ```
 
-##### 実行するには、以下のようにrun + ファイル名で実行する。
+## 実行するには、以下のようにrun + ファイル名で実行する
 
 ```bash=
-go run /Users/tateda/work2019/go-study/src/main.go 
+go run /Users/tateda/work2019/go-study/src/main.go
 ```
 
 [参考:](https://qiita.com/1000ch/items/e42e7c28cf7a7b798a02)
 
-##### パッケージをインストール
+## パッケージをインストール
+
 `go get`によってリモートのGoパッケージをダウンロードすることが出来る。GitHubやらBitBucketやらをリモートとし、対応するバージョンシステムを利用して取得。
 
 例えば以下のようにGitHubにあるGoのパッケージをダウンロードすると、`$GOPATH/src`にダウンロードされる。
@@ -100,19 +110,22 @@ go run /Users/tateda/work2019/go-study/src/main.go
 go get github.com/golang/lint
 ```
 
-##### パッケージをインストール
+## パッケージインストール
 
 `go install`によってパッケージをインストール可能。インストールしたパッケージは$GOPATH/binに配置される。パッケージ名は.goファイルのパッケージ名に基づく。
 
 ```bash=
 go install pkgname
 ```
+
 バイナリが$GOPATH/binに生成される。これは実行可能ファイル。
+
 ```bash=
  ./bin/pkgname
  ```
 
-##### パッケージのビルド
+## パッケージのビルド
+
 `go build`によってパッケージをビルド可能。go installとは異なり、カレントディレクトリに配置される。
 
 ```bash=
@@ -120,17 +133,21 @@ go build pkgname
 ```
 
 カレントディレクトリにgo install同様の実行可能ファイルが生成される。
+
 ```bash=
 ./pkgname
 ```
 
+## VS Code上でデバッグができるようにdelevをインストール
 
+brewでもインストールできますが、認証が面倒なのでgoコマンドでインストールします。
 
+```bash=
+go get -u -v github.com/derekparker/delve/cmd/dlv
+```
 
+```bash=
+dlv version
+```
 
-
-
-
-
-
-
+[参考:デバッグ](https://dev.classmethod.jp/go/visual-studio-code-golang-debug/)
