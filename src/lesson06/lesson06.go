@@ -2,10 +2,18 @@ package main
 
 import "fmt"
 
-// 雛形
+// フォーマットしたい時は下記のようにターミナルからgofmtを-wオプション付きで打つ
+// gofmt -w /Users/tateda/work2019/go-study/src/lesson06/lesson06.go
+
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	fmt.Println("1 + 1 =", 1+1)
+	fmt.Println("10 - 1 =", 10-1)
+	fmt.Println("10 / 2 =", 10/2)
+	fmt.Println("10 / 3 =", 10/3)
+	fmt.Println("10.0 / 3 =", 10.0/3)
+	fmt.Println("10 / 3.0 =", 10/3.0)
+	fmt.Println("10 % 2 =", 10%2)
+	fmt.Println("10 % 3 =", 10%3)
 
 }
