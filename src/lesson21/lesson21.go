@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// 雛形
+// for文
 func main() {
 
 	var f32 float32 = 1.2

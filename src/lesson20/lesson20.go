@@ -2,10 +2,47 @@ package main
 
 import "fmt"
 
-// 雛形
+func by2(num int) string {
+	if num%2 == 0 {
+		return "ok"
+	} else {
+		return "no"
+	}
+}
+
+// if文
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	result := by2(10)
+	if result == "ok" {
+		fmt.Println("great")
+	}
+	fmt.Println(result)
+
+	if result2 := by2(10); result2 == "ok" {
+		fmt.Println("great2")
+	}
+	// result2が使えない
+	//fmt.Println(result2)
+
+	num := 9
+	if num%2 == 0 {
+		fmt.Println("by 2")
+	} else if num%3 == 0 {
+		fmt.Println("by 3")
+	} else {
+		fmt.Println("else")
+	}
+
+	x, y := 10, 10
+	if x == 10 && y == 10 {
+		fmt.Println("&&")
+	}
+	if x == 10 || y == 10 {
+		fmt.Println("||")
+	}
+	if x == 11 || y == 12 {
+		fmt.Println("||")
+	}
 
 }
