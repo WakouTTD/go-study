@@ -2,10 +2,23 @@ package main
 
 import "fmt"
 
-// 雛形
+func foo(params ...int) {
+	fmt.Println(len(params), params)
+	for _, param := range params {
+		fmt.Println(param)
+	}
+}
+
+// 可変長引数
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	foo()
+	foo(10, 20)
+	foo(10, 20, 30)
 
+	s := []int{1, 2, 3}
+	fmt.Println(s)
+
+	// スライスを展開してfooに渡す書き方
+	foo(s...)
 }
