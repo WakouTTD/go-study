@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// defer 遅延実行
+// 雛形
 func main() {
 
 	var f32 float32 = 1.2
