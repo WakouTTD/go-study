@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
-// 雛形
+// range
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	l := []string{"python", "go", "java"}
+	for i := 0; i < len(l); i++ {
+		fmt.Println(i, l[i])
+	}
 
 }
