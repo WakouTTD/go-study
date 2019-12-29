@@ -1,12 +1,11 @@
 # 今ある疑問
 
-- goでクローラーかスクレイピングする時って何使えば良い？
+## goでクローラーかスクレイピングする時って何使えば良い？
 
-
-- スライスって何？
+## スライスって何？
   - どうやらarrayのことらしい
 
-- エラー制御
+## エラー制御
 
 参考：strconv.Atoi(s)では下記のようなエラー制御
 
@@ -19,10 +18,16 @@ if nerr, ok := err.(*NumError); ok {
 return int(i64), err
 ```
 
-- goでシステムコマンド呼ぶ時ってcobraってのを使うの？
+## goだと厳密に言うとオブジェクトではなくStruct
 
-- gRPC使う
-- json.marshall、json.unmarshall使う
-- redis
-- mysql
-- elasticsearch
+## goでシステムコマンド呼ぶ時ってcobraってのを使うのか
+
+## gRPC使う
+
+## json.marshall、json.unmarshall使う
+
+## redis
+
+## mysql
+
+## elasticsearch
