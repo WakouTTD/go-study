@@ -2,10 +2,27 @@ package main
 
 import "fmt"
 
-// ポインタ
+func one(x int) {
+	x = 1
+}
+
+func two(x *int) {
+	// ポイントが指す実体を「デリファレンス」という
+	*x = 2
+}
+
+// ポインタ2
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	var n = 100
+	one(n)
+	fmt.Println(n)
+
+	two(&n)
+	fmt.Println(n)
+	fmt.Println("-----------")
+	fmt.Println(n)
+	fmt.Println(&n)
+	fmt.Println(*&n)
 
 }
