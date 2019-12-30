@@ -9,7 +9,7 @@ import (
 // エラーハンドリング
 func main() {
 
-	file, err := os.Open("/Users/tateda/work2019/go-study/src/lesson28/lesson28.go")
+	file, err := os.Open("/Users/tateda/work2019/go-study/src/4_statement/lesson28.go")
 	//エラーがnilでなければ、出力する
 	if err != nil {
 		log.Fatal("Error!")
