@@ -2,10 +2,25 @@ package main
 
 import "fmt"
 
-// 雛形
+func thirdPartyConnectDB() {
+	// panicは自分で例外を投げられる　stdError
+	panic("Unable to connect database!")
+}
+
+func save() {
+	defer func() {
+		s := recover()
+		fmt.Println(s)
+	}()
+	// defer recover が先に無ければpanicをキャッチできない
+	thirdPartyConnectDB()
+}
+
+// panic とrecover
+// まぁできるだけプロダクトコードでpanicは書かないことが推奨されている
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
+	save()
+	fmt.Println("OK?")
 
 }

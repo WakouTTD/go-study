@@ -5,6 +5,7 @@
 ## スライスって何
 
 - どうやらarrayのことらしい
+- スライスなんだけど、配列という呼び方が一般化してるのでややこしい
 
 ## エラー制御
 
@@ -19,6 +20,8 @@ if nerr, ok := err.(*NumError); ok {
 return int(i64), err
 ```
 
+- lesson28,29辺りを参照
+
 ## goだと厳密に言うとオブジェクトではなくStruct
 
 ## goでシステムコマンド呼ぶ時ってcobraってのを使うのか
@@ -27,8 +30,8 @@ return int(i64), err
 
 ## json.marshall、json.unmarshall使う
 
-## redis
+## redis接続と操作
 
-## mysql
+## mysql接続と操作
 
-## elasticsearch
+## elasticsearch接続と操作
