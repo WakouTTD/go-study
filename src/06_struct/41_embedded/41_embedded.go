@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// ポインタ
+// embedded 組み込み
 func main() {
 
 	var f32 float32 = 1.2
