@@ -22,6 +22,14 @@ return int(i64), err
 
 - lesson28,29辺りを参照
 
+## Interfaces
+
+## Goroutines
+
+## Channels
+
+## mutex(排他制御)
+
 ## goだと厳密に言うとオブジェクトではなくStruct
 
 ## goでシステムコマンド呼ぶ時ってcobraってのを使うのか

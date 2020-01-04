@@ -28,7 +28,6 @@ func New(x, y int) *Vertex {
 func (v *Vertex) Scale(i int) {
 	v.x = v.x * i
 	v.y = v.y * i
-
 }
 
 // メソッド
