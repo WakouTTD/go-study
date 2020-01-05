@@ -21,6 +21,7 @@ func (i MyInt) Double() int {
 }
 
 // non struct type にもメソッドが使える
+// レアだからあまり使わないかもしれない
 func main() {
 
 	myInt := MyInt(10)
