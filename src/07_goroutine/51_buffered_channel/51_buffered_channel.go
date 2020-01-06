@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
-// ポインタ
+// Buffered Channels
+// Goroutineとmainなど、並列で走っているスレッド間でデータのやりとりをする
 func main() {
 
-	var f32 float32 = 1.2
-	fmt.Printf("%T", f32)
-
+	// channelの数を2にしてみる
+	ch := make(chan int, 2)
+	ch <- 100
+	fmt.Println(len(ch))
 }

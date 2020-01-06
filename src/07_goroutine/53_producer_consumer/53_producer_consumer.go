@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// ポインタ
+// producer consumer
 func main() {
 
 	var f32 float32 = 1.2
