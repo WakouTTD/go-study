@@ -1,20 +1,28 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// Vertex 構造体
-type Vertex struct {
-	X, Y int
+func goroutine(s []string, c chan string) {
+	sum := ""
+	for _, v := range s {
+		sum += v
+		c <- sum
+	}
+	close(c)
 }
 
-// Plus 7と表示されるメソッドを作成してください。という課題の回答
-func (v Vertex) Plus() int {
-	return v.X + v.Y
-}
-
+/*
+下記のような文字出力をさせる
+test1!
+test1!test2!
+test1!test2!test3!
+test1!test2!test3!test4!
+*/
 func main() {
-	v := Vertex{3, 4}
-	fmt.Println(v.Plus())
+	words := []string{"test1!", "test2!", "test3!", "test4!"}
+	c := make(chan string)
+	go goroutine(words, c)
+	for w := range c {
+		fmt.Println(w)
+	}
 }
