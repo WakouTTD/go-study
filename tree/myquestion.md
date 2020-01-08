@@ -24,11 +24,43 @@ return int(i64), err
 
 ## Interfaces
 
+- ちょっとわかった
+
 ## Goroutines
+
+- ちょっとわかった
 
 ## Channels
 
+- ちょっとわかった
+
 ## mutex(排他制御)
+
+- ちょっとわかった
+
+## Unit test
+
+- 標準のtestだと下記のようになる
+
+```go=
+import "testing"
+
+// このテスト実行しないよって時は trueにする
+var Debug bool = false
+
+func TestAverage(t *testing.T) {
+    if Debug {
+        t.Skip("Skip Reason")
+    }
+    v := Average([]int{1, 2, 3, 4, 5})
+    if v != 3 {
+        t.Error("Expected 3, got", v)
+    }
+}
+```
+
+- もしくはサードパーティのGinkgoを使うか、もっと良いtestフレームワークを探すか gomegaとか
+
 
 ## goだと厳密に言うとオブジェクトではなくStruct
 

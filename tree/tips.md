@@ -13,3 +13,8 @@ gofmt sample.go
 ```bash=
 gofmt -w sample.go
 ```
+
+このディレクトリ配下の全てのtest実行
+```bach=
+go test -v ./..
+```
