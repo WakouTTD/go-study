@@ -28,6 +28,10 @@ func longProcess(ctx context.Context) {
 	fmt.Println("Done")
 }
 
+// サードパーティの便利はパッケージ紹介
+// セマフォ (英: semaphore) とは、計算機科学において、
+// 並列プログラミング環境での複数のプロセスが共有する資源にアクセスするのを制御する際の単純だが便利な抽象化を提供する変数または抽象データ
+// semaphore
 func main() {
 	ctx := context.TODO()
 	go longProcess(ctx)

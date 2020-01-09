@@ -151,3 +151,7 @@ dlv version
 ```
 
 [参考:デバッグ](https://dev.classmethod.jp/go/visual-studio-code-golang-debug/)
+
+```bash=
+export GOENV_DISABLE_GOPATH=1
+```

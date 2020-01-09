@@ -1,10 +1,13 @@
+/*
+
+ */
 package main
 
 import (
 	"fmt"
 
-	"awesomeProject/mylib"
-	"awesomeProject/mylib/under"
+	"08_package/65_godoc/mylib"
+	"08_package/65_godoc/mylib/under"
 )
 
 func main() {
