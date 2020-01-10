@@ -155,3 +155,33 @@ dlv version
 ```bash=
 export GOENV_DISABLE_GOPATH=1
 ```
+
+## go-sqlite3を使うためのMac環境設定
+
+```bash=
+brew install sqlite
+install gcc (Xcode)
+go get github.com/mattn/go-sqlite3
+(export CGO_ENABLED=1)
+```
+
+## sqlite実行
+
+- ターミナルで'sqlite3'と打つだけ
+- 抜ける時は'.exit'と打つ
+
+```bash=
+23:45:35 go-study $ sqlite3
+SQLite version 3.28.0 2019-04-15 14:49:49
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .exit
+23:49:36 go-study $
+```
+
+## xcodeのコマンドラインツールをインストール
+
+```bash=
+xcode-select --install
+```
