@@ -8,18 +8,19 @@ import (
 	"regexp"
 )
 
+// Page ページを管理するstruct
 type Page struct {
 	Title string
 	Body  []byte
 }
 
 func (p *Page) save() error {
-	filename := p.Title + ".txt"
+	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := title + ".txt"
+	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + title + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err
@@ -27,10 +28,10 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
+var templates = template.Must(template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/" + "edit.html", "/Users/tateda/work2019/go-study/src/13_web_applications/" + "view.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-	err := templates.ExecuteTemplate(w, tmpl+".html", p)
+	err := templates.ExecuteTemplate(w, "/Users/tateda/work2019/go-study/src/13_web_applications/" + tmpl + ".html", p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

@@ -185,3 +185,19 @@ sqlite> .exit
 ```bash=
 xcode-select --install
 ```
+
+## サーバーと立ち上げようとして、already used errorになったら
+
+- lsofコマンドで確認して殺しましょう
+
+```bash=
+04:03:51 mattn $ sudo lsof -i:8080
+Password:
+COMMAND    PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Google     800 tateda   28u  IPv6 0x34f0cf3bb7629283      0t0  TCP localhost:49566->localhost:http-alt (ESTABLISHED)
+87_temple 8958 tateda    3u  IPv6 0x34f0cf3bb762ab03      0t0  TCP *:http-alt (LISTEN)
+87_temple 8958 tateda    5u  IPv6 0x34f0cf3bb7628023      0t0  TCP localhost:http-alt->localhost:49566 (ESTABLISHED)
+04:45:27 mattn $ kill 8958
+04:47:08 mattn $ sudo lsof -i:8080
+04:47:11 mattn $
+```

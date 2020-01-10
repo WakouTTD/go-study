@@ -7,18 +7,19 @@ import (
 	"net/http"
 )
 
+// Page ページを管理するstruct
 type Page struct {
 	Title string
 	Body  []byte
 }
 
 func (p *Page) save() error {
-	filename := p.Title + ".txt"
+	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := title + ".txt"
+	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + title + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err
@@ -27,7 +28,7 @@ func loadPage(title string) (*Page, error) {
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-	t, _ := template.ParseFiles(tmpl + ".html")
+	t, _ := template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/" + tmpl + ".html")
 	t.Execute(w, p)
 }
 
