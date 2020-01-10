@@ -28,10 +28,13 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-var templates = template.Must(template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/" + "edit.html", "/Users/tateda/work2019/go-study/src/13_web_applications/" + "view.html"))
+var templates = template.Must(template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/edit.html", "/Users/tateda/work2019/go-study/src/13_web_applications/view.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-	err := templates.ExecuteTemplate(w, "/Users/tateda/work2019/go-study/src/13_web_applications/" + tmpl + ".html", p)
+
+	// このrenderTemplateは、viewHandlerとeditHandlerが呼ばれる度にParseFilesするのはパフォーマンス的に良くないのでキャッシュすれば良い
+	//t, _ := template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/" + tmpl + ".html")
+	err := templates.ExecuteTemplate(w, "/Users/tateda/work2019/go-study/src/13_web_applications/"+tmpl+".html", p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -74,6 +77,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 			http.NotFound(w, r)
 			return
 		}
+		// m[2]には(edit|save|view)以降の文字列が入る
 		fn(w, r, m[2])
 	}
 }
@@ -84,4 +88,3 @@ func main() {
 	http.HandleFunc("/save/", makeHandler(saveHandler))
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
-
