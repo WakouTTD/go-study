@@ -1,3 +1,6 @@
 .vscode
 /pkg/
 /bin/
+src/github.com/ini/
+src/github.com/markcheno/go-quote/
+src/golang.org/
