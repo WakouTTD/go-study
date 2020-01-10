@@ -16,13 +16,13 @@ ioutilは、ネットワーク関連で用いられるパッケージ
 
 // ioutil アイオーユーティル
 func main() {
-	// content, err := ioutil.ReadFile("/Users/tateda/work2019/go-study/src/09_go_pacakges/72_ioutil/72_ioutil.go")
+	// content, err := ioutil.ReadFile("/Users/tateda/work2020/go-study/src/09_go_pacakges/72_ioutil/72_ioutil.go")
 	// if err != nil {
 	// 	log.Fatalln(err)
 	// }
 	// fmt.Println(string(content))
 
-	// if err := ioutil.WriteFile("/Users/tateda/work2019/go-study/src/09_go_pacakges/72_ioutil/ioutil_temp.go", content, 0666); err != nil {
+	// if err := ioutil.WriteFile("/Users/tateda/work2020/go-study/src/09_go_pacakges/72_ioutil/ioutil_temp.go", content, 0666); err != nil {
 	// 	log.Fatalln(err)
 	// }
 

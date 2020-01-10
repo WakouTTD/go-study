@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -15,12 +16,15 @@ type Page struct {
 }
 
 func (p *Page) save() error {
-	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + p.Title + ".txt"
+	filename := "/Users/tateda/work2020/go-study/src/13_web_applications/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + title + ".txt"
+
+	fmt.Println("loadPage")
+
+	filename := "/Users/tateda/work2020/go-study/src/13_web_applications/" + title + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err
@@ -28,19 +32,26 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-var templates = template.Must(template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/edit.html", "/Users/tateda/work2019/go-study/src/13_web_applications/view.html"))
+// キャッシュする
+var templates = template.Must(template.ParseFiles("/Users/tateda/work2020/go-study/src/13_web_applications/edit.html", "/Users/tateda/work2020/go-study/src/13_web_applications/view.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+	fmt.Println("renderTemplate")
 
 	// このrenderTemplateは、viewHandlerとeditHandlerが呼ばれる度にParseFilesするのはパフォーマンス的に良くないのでキャッシュすれば良い
-	//t, _ := template.ParseFiles("/Users/tateda/work2019/go-study/src/13_web_applications/" + tmpl + ".html")
-	err := templates.ExecuteTemplate(w, "/Users/tateda/work2019/go-study/src/13_web_applications/"+tmpl+".html", p)
+	//t, _ := template.ParseFiles("/Users/tateda/work2020/go-study/src/13_web_applications/" + tmpl + ".html")
+
+	// ExecuteTemplateでキャッシュから取得する際には、フルパスで書かない
+	err := templates.ExecuteTemplate(w, tmpl+".html", p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
+
+	fmt.Println("viewHandler")
+
 	p, err := loadPage(title)
 	if err != nil {
 		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
@@ -50,6 +61,9 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request, title string) {
+
+	fmt.Println("editHandler")
+
 	p, err := loadPage(title)
 	if err != nil {
 		p = &Page{Title: title}
@@ -71,6 +85,9 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+
+	fmt.Println("makeHandler")
+
 	return func(w http.ResponseWriter, r *http.Request) {
 		m := validPath.FindStringSubmatch(r.URL.Path)
 		if m == nil {
@@ -83,6 +100,9 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 }
 
 func main() {
+
+	fmt.Println("main")
+
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))

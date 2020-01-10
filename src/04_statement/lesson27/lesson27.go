@@ -16,7 +16,7 @@ func loggingSettings(logFile string) {
 
 // ファイルオープンのロギング
 func main() {
-	loggingSettings("/Users/tateda/work2019/go-study/src/4_statement/test.log")
+	loggingSettings("/Users/tateda/work2020/go-study/src/4_statement/test.log")
 	_, err := os.Open("./kkkd.log")
 	if err != nil {
 		log.Fatalln("Exit", err)

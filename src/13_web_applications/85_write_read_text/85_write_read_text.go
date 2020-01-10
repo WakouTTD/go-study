@@ -13,12 +13,12 @@ type Page struct {
 
 // save テキストに情報を書き込むメソッド
 func (p *Page) save() error {
-	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + p.Title + ".txt"
+	filename := "/Users/tateda/work2020/go-study/src/13_web_applications/" + p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := "/Users/tateda/work2019/go-study/src/13_web_applications/" + title + ".txt"
+	filename := "/Users/tateda/work2020/go-study/src/13_web_applications/" + title + ".txt"
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err

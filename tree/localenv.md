@@ -28,7 +28,7 @@ export PATH="$HOME/.goenv/bin:$PATH"
 # envによるバージョン切替
 eval "$(goenv init -)"
 #
-export GOPATH=$HOME/work2019/go-study
+export GOPATH=$HOME/work2020/go-study
 export PATH=$PATH:$GOPATH
 export GOBIN=$GOPATH/bin
 ```
@@ -95,7 +95,7 @@ func main() {
 ## 実行するには、以下のようにrun + ファイル名で実行する
 
 ```bash=
-go run /Users/tateda/work2019/go-study/src/main.go
+go run /Users/tateda/work2020/go-study/src/main.go
 ```
 
 [参考:](https://qiita.com/1000ch/items/e42e7c28cf7a7b798a02)

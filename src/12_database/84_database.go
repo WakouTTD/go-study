@@ -30,7 +30,7 @@ sqlite>
 
 func main() {
 	//sqlファイルを指定
-	DbConnection, _ := sql.Open("sqlite3", "/Users/tateda/work2019/go-study/src/12_database/example.sql")
+	DbConnection, _ := sql.Open("sqlite3", "/Users/tateda/work2020/go-study/src/12_database/example.sql")
 	defer DbConnection.Close()
 
 	// バッククォートを使えば改行して見やすく書ける

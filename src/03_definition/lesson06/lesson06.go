@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // フォーマットしたい時は下記のようにターミナルからgofmtを-wオプション付きで打つ
-// gofmt -w /Users/tateda/work2019/go-study/src/3_definition/lesson06.go
+// gofmt -w /Users/tateda/work2020/go-study/src/3_definition/lesson06.go
 
 func main() {
 

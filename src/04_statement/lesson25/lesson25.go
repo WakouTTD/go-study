@@ -16,7 +16,7 @@ func main() {
 	fmt.Println("success")
 
 	// deferの使い方をファイルオープンで説明
-	file, _ := os.Open("/Users/tateda/work2019/go-study/src/4_statement/lesson25.go")
+	file, _ := os.Open("/Users/tateda/work2020/go-study/src/4_statement/lesson25.go")
 	defer file.Close()
 
 	fmt.Println("-----------")
