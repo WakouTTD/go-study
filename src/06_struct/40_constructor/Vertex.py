@@ -1,4 +1,5 @@
 # VsCodeなら右クリックで'Run Python File in Terminal'で動きます
+# pythonでいうところのコンストラクタをgoでどのように書くかの説明のために引用されています。
 class Vertex(object):
     def __init__(self, x, y):
         self._x = y
