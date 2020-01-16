@@ -23,7 +23,6 @@ func (v Vertex) Area2() int {
 func (v *Vertex) Scale(i int) {
 	v.X = v.X * i
 	v.Y = v.Y * i
-
 }
 
 // メソッドとポイントレシーバーと値レシーバー
@@ -32,7 +31,7 @@ func main() {
 	v := Vertex{3, 4}
 	fmt.Println(Area(v))
 	// 上記の書き方だとAreaというfunctionが存在することを知ってなければならない
-	// 下記の書き方だとv.と打った後にArea2のコード補完が出る
+	// 下記の書き方だとv.と打った後にArea2のコード補完が出るため、オブジェクトオリエンテッドっぽく書ける
 	fmt.Println(v.Area2())
 
 	// 書き換え

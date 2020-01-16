@@ -25,18 +25,22 @@ return int(i64), err
 ## Interfaces
 
 - ちょっとわかった
+- その後、忘れたので復讐が必要
 
 ## Goroutines
 
 - ちょっとわかった
+- その後、忘れたので復讐が必要
 
 ## Channels
 
 - ちょっとわかった
+- その後、忘れたので復讐が必要
 
 ## mutex(排他制御)
 
 - ちょっとわかった
+- その後、忘れたので復讐が必要
 
 ## Unit test
 
@@ -61,17 +65,20 @@ func TestAverage(t *testing.T) {
 
 - もしくはサードパーティのGinkgoを使うか、もっと良いtestフレームワークを探すか gomegaとか
 
-
-## goだと厳密に言うとオブジェクトではなくStruct
-
 ## goでシステムコマンド呼ぶ時ってcobraってのを使うのか
 
 ## gRPC使う
+
+## GraphQL使う
 
 ## json.marshall、json.unmarshall使う
 
 ## redis接続と操作
 
-## mysql接続と操作
+## postgre接続と操作
 
 ## elasticsearch接続と操作
+
+## どこからも生えてない関数って使わない方が良さそう
+
+- lesson39と40をやってみた感想
