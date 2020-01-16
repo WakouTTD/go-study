@@ -81,4 +81,8 @@ func TestAverage(t *testing.T) {
 
 ## どこからも生えてない関数って使わない方が良さそう
 
-- lesson39と40をやってみた感想
+- lesson39と40をやった感想
+
+## sliceで長さのみを設定するとバギーになりそう
+
+- lesson13をやった感想
