@@ -6,17 +6,15 @@ import (
 )
 
 func goroutine(s string, wg *sync.WaitGroup) {
+	// Done()はdeferにした方が見やすい
 	defer wg.Done()
-
 	for i := 0; i < 5; i++ {
-		//time.Sleep(100 * time.Millisecond)
 		fmt.Println(s)
 	}
 }
 
 func normal(s string) {
 	for i := 0; i < 5; i++ {
-		//time.Sleep(100 * time.Millisecond)
 		fmt.Println(s)
 	}
 }
@@ -29,13 +27,16 @@ func main() {
 	var wg sync.WaitGroup
 	// 1つのsyncグループがありますよという宣言
 	wg.Add(1)
+	// waitGroupのポインタを渡す
 	go goroutine("world", &wg)
 	normal("hello")
 
 	// 終了するのを待ってやらないと、worldが出力し終わる前に、helloの出力が終わった時点で、
 	// プログラムが終わる。
-	// goroutineの処理が終わらなくても、プログラムの処理自体が終わることがある
-	//time.Sleep(2000 * time.Millisecond)
+	// goroutineの処理が終わらなくても、プログラムの処理自体が終わる
 	//　そうならないようにするためにsyncのwaitグループがある
+	// waitGroupに1つの並列処理があることを告げているため、
+	// time.Sleepを使わなくても
+	// goroutineメソッド内のDone()が実行されるまで待ってくれる
 	wg.Wait()
 }
