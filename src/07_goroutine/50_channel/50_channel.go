@@ -19,7 +19,7 @@ func goroutine2(s []int, c chan int) {
 }
 
 // Channel
-// Goroutineとmainなど、並列で走っているスレッド間でデータのやりとりをする
+// 並列で走っているスレッド間でデータのやりとりをする
 func main() {
 
 	s := []int{1, 2, 3, 4, 5}
