@@ -24,8 +24,11 @@ func main() {
 
 	s := []int{1, 2, 3, 4, 5}
 
-	// integerを受け付けるchannel　キューのような役割
+	// integerを受け付けるchannel　キューのような役割 アンバッファーという
 	c := make(chan int)
+	// アンバッファードチャネルだと下記のように2つだけチャネルを受け付ける定義もできる
+	// c := make(chan int, 2)
+
 	go goroutine1(s, c)
 	go goroutine2(s, c)
 

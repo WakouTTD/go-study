@@ -37,6 +37,7 @@ return int(i64), err
 
 - gotoutine(並列で走っている別のプロセス)から値を受け取る機能
 - 07_goroutine -> 50_channelを復習
+- アンバッファードチャネルと、バッファードチャネルがある
 - [チャネルを利用しているコードのテストを支援するパッケージ](http://golang.jp/pkg/testing-script)
 
 ```
