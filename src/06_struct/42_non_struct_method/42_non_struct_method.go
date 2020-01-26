@@ -20,7 +20,7 @@ func (i MyInt) Double() int {
 	return int(i * 2)
 }
 
-// non struct type にもメソッドが使える
+// non-struct type にもメソッドが使える
 // レアだからあまり使わないかもしれない
 func main() {
 

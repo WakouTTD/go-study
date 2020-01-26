@@ -35,8 +35,8 @@ return int(i64), err
 
 ## Interfaces
 
-- ちょっとわかった
-- その後、忘れたので復習が必要
+- goでも抽象化っぽいことができそう
+- go-sample-toolsにサンプル作った
 
 ## Goroutines
 
@@ -51,7 +51,7 @@ return int(i64), err
 - アンバッファードチャネルと、バッファードチャネルがある
 - [チャネルを利用しているコードのテストを支援するパッケージ](http://golang.jp/pkg/testing-script)
 
-```
+```text=
 import "testing/script"
 
 Closeは、与えたチャネルのクローズを行います。
