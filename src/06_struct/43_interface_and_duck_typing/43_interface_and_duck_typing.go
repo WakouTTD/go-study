@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 // Human interfaceは実装を持たない、型のようなイメージ
+// 必ずSayを実装してください、というような場合に使う
 type Human interface {
 	Say() string
 }

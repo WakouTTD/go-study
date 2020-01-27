@@ -37,6 +37,7 @@ return int(i64), err
 
 - goでも抽象化っぽいことができそう
 - go-sample-toolsにサンプル作った
+- 基本的にはinterfaceで定義したfunctionを必ず実装しなければならない、というダックタイピングで用いるらしい
 
 ## Goroutines
 
