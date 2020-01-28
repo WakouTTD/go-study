@@ -95,6 +95,8 @@ func TestAverage(t *testing.T) {
 
 ## goでシステムコマンド呼ぶ時ってcobraってのを使うのか
 
+## RDB 操作
+
 ## gRPC使う
 
 ## GraphQL使う
